@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>级联列表</title>
+</head>
+
+<body>
+    <select id="bt1"><select>
+	<select  id="bt2"><select>
+	<select  id="bt3"><select>
+	<script>
+		var arr=["河北省","河南省","浙江省"];
+		var str="";
+		for(var n=0;n<arr.length;n++){
+			str=str+"<option>"+arr[n]+"</option>";
+		}
+		var bt1=document.getElementById("bt1");
+		bt1.innerHTML=str;
+		var shi=[
+			["邯郸市","秦皇岛市"],
+			["郑州市","开封市"],
+			["杭州市","绍兴市"],
+		];
+		var qu=[
+			[["邯山区","丛台区"],["抚宁区","昌平区"]],
+			[["金水区","中原区"],["顺河区","金明区"]],
+			[["上城区","下城区"],["越城区","柯桥区"]]
+		];
+		var str1="";
+		for(var n=0;n<shi[0].length;n++){
+			str1=str1+"<option>"+shi[0][n]+"</option>";
+		}
+        
+		var bt2=document.getElementById("bt2");
+		bt2.innerHTML=str1;
+		bt1.onchange=function(){
+			var index=bt1.selectedIndex;
+			var str1="";
+			for(var n=0;n<shi[index].length;n++){
+				str1=str1+"<option>"+shi[index][n]+"</option>";
+		}
+		bt2.innerHTML=str1;
+
+
+
+
+
+        var index1=bt1.selectedIndex;
+		var index2=bt2.selectedIndex;
+        console.log(index1,index2);
+        
+		var str2="";
+		for(var n=0;n<qu[index1].length;n++){
+			str2=str2+"<option>"+qu[index1][index2][n]+"</option>"
+		}
+		bt3.innerHTML=str2;
+
+
+
+
+        
+	}
+
+
+
+
+
+	bt2.onchange=function(){
+		var index1=bt1.selectedIndex;
+		var index2=bt2.selectedIndex;
+        console.log(index1,index2);
+        
+		var str2="";
+		for(var n=0;n<qu[index1].length;n++){
+			str2=str2+"<option>"+qu[index1][index2][n]+"</option>"
+		}
+		bt3.innerHTML=str2;
+	}
+
+
+
+
+    var index1=bt1.selectedIndex;
+		var index2=bt2.selectedIndex;
+        console.log(index1,index2);
+        
+		var str2="";
+		for(var n=0;n<qu[index1].length;n++){
+			str2=str2+"<option>"+qu[index1][index2][n]+"</option>"
+		}
+		bt3.innerHTML=str2;
+	</script>
+</body>
+</html>
